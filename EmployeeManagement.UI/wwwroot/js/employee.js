@@ -55,6 +55,60 @@ function bindEvents() {
             }
         });
    
+    $("#createform").submit(function (event) {
+
+        var employeeDetailedViewModel = {};
+
+        employeeDetailedViewModel.Name = $("#name").val();
+        employeeDetailedViewModel.Department = $("#dept").val();
+        employeeDetailedViewModel.Age = Number($("#age").val());
+        employeeDetailedViewModel.Address = $("#address").val();
+
+        var data = JSON.stringify(employeeDetailedViewModel);
+
+        $.ajax({
+            url: 'https://localhost:44383/api/internal/addEmployees',
+            type: 'POST',
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: data,
+            success: function (result) {
+
+                location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+
+    $("#updateform").submit(function (event) {
+
+        var employeeDetailedViewModel = {};
+        employeeDetailedViewModel.Id = Number($("#eid").val());
+        employeeDetailedViewModel.Name = $("#ename").val();
+        employeeDetailedViewModel.Department = $("#edept").val();
+        employeeDetailedViewModel.Age = Number($("#eage").val());
+        employeeDetailedViewModel.Address = $("#eaddress").val();
+
+        var data = JSON.stringify(employeeDetailedViewModel);
+
+        $.ajax({
+            url: 'https://localhost:44383/api/internal/manageEmployees',
+            type: 'PUT',
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: data,
+            success: function (result) {
+
+                location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+   
 }
 
  

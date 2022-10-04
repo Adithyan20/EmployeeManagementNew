@@ -4,6 +4,7 @@ using EmployeeManagement.UI.Providers.Contracts;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 
 namespace EmployeeManagement.UI.Providers.ApiClients
 {
@@ -37,8 +38,8 @@ namespace EmployeeManagement.UI.Providers.ApiClients
         }
         public bool InsertEmployeeData(EmployeeDetailedViewModel employee)
         {
-            var stringContent = new StringContent(JsonConvert.SerializeObject(employee));
-            using (var response = _httpClient.PostAsync("https://localhost:5001/api/employee/insertUsers", stringContent))
+            var stringContent = new StringContent(JsonConvert.SerializeObject(employee), Encoding.UTF8, "application/json");
+            using (var response = _httpClient.PostAsync("https://localhost:5001/api/employee/insertUsers", stringContent).Result)
             {
                 return true;
             }
@@ -46,8 +47,8 @@ namespace EmployeeManagement.UI.Providers.ApiClients
         }
         public bool UpdateEmployee(EmployeeDetailedViewModel employee)
         {
-            var stringContent = new StringContent(JsonConvert.SerializeObject(employee));
-            using (var response = _httpClient.PutAsync("https://localhost:5001/api/employee/manageUsers", stringContent))
+            var stringContent = new StringContent(JsonConvert.SerializeObject(employee), Encoding.UTF8, "application/json");//, Encoding.UTF8, "application/json");
+            using (var response = _httpClient.PutAsync("https://localhost:5001/api/employee/manageUsers", stringContent).Result)
             {
                 return true;
             }
