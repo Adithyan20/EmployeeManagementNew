@@ -82,44 +82,17 @@ function bindEvents() {
         });
     });
 
-
-/*    $("#updateform").submit(function (event) {
-
-        var employeeDetailedViewModel = {};
-        employeeDetailedViewModel.Id = Number($("#eid").val());
-        employeeDetailedViewModel.Name = $("#ename").val();
-        employeeDetailedViewModel.Department = $("#edept").val();
-        employeeDetailedViewModel.Age = Number($("#eage").val());
-        employeeDetailedViewModel.Address = $("#eaddress").val();
-
-        var data = JSON.stringify(employeeDetailedViewModel);
-
-        $.ajax({
-            url: 'https://localhost:44383/api/internal/manageEmployees',
-            type: 'PUT',
-            dataType: 'json',
-            contentType: "application/json; charset=utf-8",
-            data: data,
-            success: function (result) {
-
-                location.reload();
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    });*/
     $(".employeeEdit").on("click", function (event) {
         console.log("clicked");
         var employeeId = event.currentTarget.getAttribute("data-id");
         $.ajax({
-            url: "https://localhost:44383/api/internal/" + employeeId,
+            url: 'https://localhost:44383/api/internal/' + employeeId,
             type: 'GET',
             contentType: "application/json; charset=utf-8",
             success: function (result) {
                 $("#eid").val(result.id)
                 $("#ename").val(result.name)
-                $("#edepartment").val(result.department)
+                $("#edept").val(result.department)
                 $("#eage").val(result.age)
                 $("#eaddress").val(result.address)
             },
@@ -131,7 +104,7 @@ function bindEvents() {
             console.log("clicked");
             var idUpdate = $("#eid").val();
             var nameUpdate = $("#ename").val();
-            var departmentUpdate = $("#edepartment").val();
+            var departmentUpdate = $("#edept").val();
             var ageUpdate = $("#eage").val();
             var addressUpdate = $("#eaddress").val();
             let employees = {
@@ -159,6 +132,9 @@ function bindEvents() {
             });
         });
     });
+
+    
+
 }
 
  

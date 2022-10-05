@@ -17,7 +17,7 @@
                     <input type="text" style="width:100%" required id="name" name="name" pattern="[a-zA-Z/s/.]{1,15}"/><br>
                     <label>Department:</label><br>                  
                     <select style="width:100%" name="department"  required id="dept">
-                        <option value="Choose an option">Choose an option</option>
+                        <option value="">Choose an option</option>
                         <option value="Finance"> Finance</option>
                         <option value="Developer"> Developer</option>
                         <option value="CEO"> CEO</option>
@@ -27,7 +27,7 @@
                     <input type="number" style="width:100%"required id="age" name="age" min="21" max="60"/><br>
                     <label>Address:</label><br>
                     <input type="text" style="width:100%"required id="address" name="address" pattern="[a-zA-Z/s/,]{1-30}" maxlength="30"/><br><br><br>
-                    <input type="submit" value="create">
+                    <input type="submit" value="create" class="btn btn-success">
                 </form>
 
             </div>
@@ -48,22 +48,22 @@
             <div class="modal-body">
                 <form id="updateform">
                     <label >ID:</label><br>
-                    <input type ="text" style="width:100%" id="eid" name="id"/><br>
+                    <input type ="text" style="width:100%" id="eid" name="id" /><br>
                     <label>Name:</label><br>
-                    <input type="text" style="width:100%" id="ename" name="name"pattern="[a-zA-Z/s/.]{1,15}" /><br>
+                    <input type="text" style="width:100%" id="ename" name="name"pattern="[a-zA-Z/s/.]{1,15}" required/><br>
                     <label>Department:</label><br>
-                    <select style="width:100%" name="department" id="edept">
-                        <option > Choose an option</option>
+                    <select style="width:100%" name="department" id="edept" required>
+                        <option value="" > Choose an option</option>
                         <option value="Finance"> Finance</option>
                         <option value="Developer"> Developer</option>
                         <option value="CEO"> CEO</option>
                         <option value="HR">HR </option>
                     </select><br />
                     <label>Age:</label><br>
-                    <input type="number" style="width:100%" id="eage" name="age" min="18" max="60" /><br>
+                    <input type="number" style="width:100%" id="eage" name="age" min="18" max="60" required/><br>
                     <label>Address:</label><br>
-                    <input type="text" style="width:100%" id="eaddress" name="address" pattern="[a-zA-Z/s/,]{1-15}" /><br><br><br>
-                    <input type="submit" value="create">
+                    <input type="text" style="width:100%" id="eaddress" name="address" pattern="[a-zA-Z/s/,]{1-15}" required /><br><br><br>
+                    <input type="submit" value="create" class="btn btn-success">
                 </form>
 
             </div>
