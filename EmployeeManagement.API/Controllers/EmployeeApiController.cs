@@ -31,14 +31,7 @@ namespace EmployeeManagement.API.Controllers
                 var employeeById = _employeeService.GetEmployeeById(employeeId);              
                 return Ok(MapToGet(employeeById));
             }
-            /*catch(ArgumentNullException ex)
-            {
-                return StatusCode(StatusCodes.Status404NotFound, ex.Message);
-            }
-            catch(ArgumentException ex)
-            {
-                return StatusCode(StatusCodes.Status400BadRequest, ex.Message);
-            }*/
+            
             catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);

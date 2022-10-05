@@ -91,6 +91,7 @@ namespace EmployeeManagement.Application.Services
         }
         private EmployeeDto MapToEmployee(EmployeeData employeeById)
         {
+            //null  check
             return new EmployeeDto
             {
                 Id = employeeById.Id,

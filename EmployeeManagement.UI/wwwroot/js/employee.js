@@ -82,7 +82,8 @@ function bindEvents() {
         });
     });
 
-    $("#updateform").submit(function (event) {
+
+/*    $("#updateform").submit(function (event) {
 
         var employeeDetailedViewModel = {};
         employeeDetailedViewModel.Id = Number($("#eid").val());
@@ -107,8 +108,57 @@ function bindEvents() {
                 console.log(error);
             }
         });
+    });*/
+    $(".employeeEdit").on("click", function (event) {
+        console.log("clicked");
+        var employeeId = event.currentTarget.getAttribute("data-id");
+        $.ajax({
+            url: "https://localhost:44383/api/internal/" + employeeId,
+            type: 'GET',
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                $("#eid").val(result.id)
+                $("#ename").val(result.name)
+                $("#edepartment").val(result.department)
+                $("#eage").val(result.age)
+                $("#eaddress").val(result.address)
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+        $("#updateform").submit(function (event) {
+            console.log("clicked");
+            var idUpdate = $("#eid").val();
+            var nameUpdate = $("#ename").val();
+            var departmentUpdate = $("#edepartment").val();
+            var ageUpdate = $("#eage").val();
+            var addressUpdate = $("#eaddress").val();
+            let employees = {
+                id: parseInt(idUpdate),
+                name: nameUpdate,
+                department: departmentUpdate,
+                age: parseInt(ageUpdate),
+                address: addressUpdate
+            };
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                url: 'https://localhost:44383/api/internal/manageEmployees',
+                type: 'PUT',
+                data: JSON.stringify(employees),
+                dataType: 'json',
+                success: function (result) {
+                    location.reload();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
     });
-   
 }
 
  
