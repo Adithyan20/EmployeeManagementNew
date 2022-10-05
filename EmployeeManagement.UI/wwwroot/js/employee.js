@@ -72,6 +72,7 @@ function bindEvents() {
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
             data: data,
+            async: false,
             success: function (result) {
 
                 location.reload();
@@ -123,6 +124,7 @@ function bindEvents() {
                 type: 'PUT',
                 data: JSON.stringify(employees),
                 dataType: 'json',
+                async: false,
                 success: function (result) {
                     location.reload();
                 },

@@ -14,7 +14,7 @@
             <div class="modal-body">
                 <form id="createform">
                     <label>Name:</label><br>
-                    <input type="text" style="width:100%" required id="name" name="name" pattern="[a-zA-Z/s/.]{1,15}"/><br>
+                    <input type="text" style="width:100%" required id="name" name="name" pattern="[a-zA-Z/s]{0-9}"maxlength="20"/><br>
                     <label>Department:</label><br>                  
                     <select style="width:100%" name="department"  required id="dept">
                         <option value="">Choose an option</option>
@@ -47,22 +47,22 @@
             </div>
             <div class="modal-body">
                 <form id="updateform">
-                    <label >ID:</label><br>
-                    <input type ="text" style="width:100%" id="eid" name="id" /><br>
+                    <label>ID:</label><br>
+                    <input type="text" style="width:100%" id="eid" name="id" disabled/><br>
                     <label>Name:</label><br>
-                    <input type="text" style="width:100%" id="ename" name="name"pattern="[a-zA-Z/s/.]{1,15}" required/><br>
+                    <input type="text" style="width:100%" required id="ename" name="name" pattern="[a-zA-Z/s]{0-9}" maxlength="20" /><br>
                     <label>Department:</label><br>
                     <select style="width:100%" name="department" id="edept" required>
-                        <option value="" > Choose an option</option>
+                        <option value=""> Choose an option</option>
                         <option value="Finance"> Finance</option>
                         <option value="Developer"> Developer</option>
                         <option value="CEO"> CEO</option>
                         <option value="HR">HR </option>
                     </select><br />
                     <label>Age:</label><br>
-                    <input type="number" style="width:100%" id="eage" name="age" min="18" max="60" required/><br>
+                    <input type="number" style="width:100%" id="eage" name="age" min="18" max="60" required /><br>
                     <label>Address:</label><br>
-                    <input type="text" style="width:100%" id="eaddress" name="address" pattern="[a-zA-Z/s/,]{1-15}" required /><br><br><br>
+                    <input type="text" style="width:100%" id="eaddress" name="address" pattern="[a-zA-Z/s/,]{0-9}" maxlength="30" required /><br><br><br>
                     <input type="submit" value="create" class="btn btn-success">
                 </form>
 
